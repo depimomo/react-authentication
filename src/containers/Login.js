@@ -23,6 +23,7 @@ const Login = () => {
         const password = data.get('password');
 
         try {
+            // kita pakai fungsi ini untuk login
             await signInWithEmailAndPassword(auth, email, password);
             navigate("/");
         } catch (error) {
@@ -31,7 +32,8 @@ const Login = () => {
     };
 
     const forgotPassword = () => {
-        sendPasswordResetEmail(auth, "monicadevikristiadi@gmail.com")
+        // insert email to reset password here
+        sendPasswordResetEmail(auth, "")
             .then(() => {
                 console.log("email sent");
             })

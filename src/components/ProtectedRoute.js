@@ -3,6 +3,9 @@ import { Navigate } from 'react-router-dom';
 
 import { auth } from '../config/firebase';
 
+// protected route ini untuk menjaga agar user hanya bisa mengakses halaman ketika sudah login
+// kita juga bikin fungsi kebalikannya, jadi halaman login dan register tidak bisa diakses lagi
+// setelah login
 const ProtectedRoute = ({ children, loginOnly = true }) => {
   const [user] = useAuthState(auth);
 

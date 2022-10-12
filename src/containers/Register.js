@@ -23,6 +23,7 @@ const Register = () => {
         const password = data.get('password');
         
         try {
+            // kita pakai fungsi ini untuk register
             const { user } = await createUserWithEmailAndPassword(auth, email, password);
             console.log(user);
             navigate("/");

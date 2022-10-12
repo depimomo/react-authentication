@@ -2,6 +2,8 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 // TODO: replace with your own config
+// confignya didapat dari halaman firebase kalian
+// bisa dicek di https://firebase.google.com/
 const firebaseConfig = {
     apiKey: "",
     authDomain: "mood-meter-13966.firebaseapp.com",
@@ -13,6 +15,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+// ambil auth dari firebase di sini sekali aja biar bisa dipakai berkali-kali
 const auth = getAuth(app);
 
+//diexport
 export { auth };
