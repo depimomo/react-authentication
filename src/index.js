@@ -23,6 +23,10 @@ root.render(
           <ProtectedRoute>
             <App />
           </ProtectedRoute>} />
+          <Route path="private" element={
+          <ProtectedRoute>
+            <div>ini rahasia</div>
+          </ProtectedRoute>} />
         <Route path="login" element={
           <ProtectedRoute loginOnly={false}>
             <Login />
