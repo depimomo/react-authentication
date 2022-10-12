@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
 import * as React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -29,6 +29,16 @@ const Login = () => {
             setErrorMessage(error.message);
         }
     };
+
+    const forgotPassword = () => {
+        sendPasswordResetEmail(auth, "monicadevikristiadi@gmail.com")
+            .then(() => {
+                console.log("email sent");
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -81,6 +91,9 @@ const Login = () => {
                             <Link to="/register">
                                 {"Don't have an account? Sign Up"}
                             </Link>
+                            <Button onClick={forgotPassword}>
+                                {"Forgot password"}
+                            </Button>
                         </Grid>
                     </Grid>
                 </Box>
